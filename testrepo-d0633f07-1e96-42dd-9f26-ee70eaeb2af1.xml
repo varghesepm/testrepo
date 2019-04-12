@@ -1,0 +1,22 @@
+<joblist>
+  <job>
+    <defaultTab>summary</defaultTab>
+    <description>testrepo</description>
+    <executionEnabled>true</executionEnabled>
+    <id>d0633f07-1e96-42dd-9f26-ee70eaeb2af1</id>
+    <loglevel>INFO</loglevel>
+    <name>testrepo</name>
+    <nodeFilterEditable>false</nodeFilterEditable>
+    <scheduleEnabled>true</scheduleEnabled>
+    <sequence keepgoing='false' strategy='node-first'>
+      <command>
+        <node-step-plugin type='localexec'>
+          <configuration>
+            <entry key='command' value='w' />
+          </configuration>
+        </node-step-plugin>
+      </command>
+    </sequence>
+    <uuid>d0633f07-1e96-42dd-9f26-ee70eaeb2af1</uuid>
+  </job>
+</joblist>

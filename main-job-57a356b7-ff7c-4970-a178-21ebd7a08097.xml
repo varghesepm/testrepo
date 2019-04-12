@@ -1,0 +1,20 @@
+<joblist>
+  <job>
+    <defaultTab>summary</defaultTab>
+    <description>main-job</description>
+    <executionEnabled>true</executionEnabled>
+    <id>57a356b7-ff7c-4970-a178-21ebd7a08097</id>
+    <loglevel>INFO</loglevel>
+    <name>main-job</name>
+    <nodeFilterEditable>false</nodeFilterEditable>
+    <scheduleEnabled>true</scheduleEnabled>
+    <sequence keepgoing='false' strategy='node-first'>
+      <command>
+        <description>bash test.sh</description>
+        <scriptargs />
+        <scriptfile>/var/rundeck/projects/production-jobs/scm/test.sh</scriptfile>
+      </command>
+    </sequence>
+    <uuid>57a356b7-ff7c-4970-a178-21ebd7a08097</uuid>
+  </job>
+</joblist>
