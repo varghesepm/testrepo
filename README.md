@@ -6,6 +6,6 @@
 4  
 5  
 2. Select 'Build with Parameters' option and use below xxx:  
-   	ENV=xxxx 
+   	ENV=xxxx  
    	GIT_BRANCH=origin/xx  
    	DOCKER_TAG= 0.0.0.6x  
