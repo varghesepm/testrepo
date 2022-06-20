@@ -1,0 +1,4 @@
+newfile to test
+this for merge
+only 
+new changes
