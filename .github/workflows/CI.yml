@@ -13,7 +13,6 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   Sample-Tester:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -35,12 +34,11 @@ jobs:
   
   test-runer:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        tests_env: ["united", "city", "arsenal"]
     steps:
       - uses: actions/checkout@v2
-      - name: Tester
-        strategy:
-          matrix:
-            tests_env: ["united", "city", "arsenal"]
       - name: Print ENV
         run: |
           set -x
