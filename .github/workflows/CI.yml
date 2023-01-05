@@ -43,7 +43,7 @@ jobs:
         run: |
           set -x
           # echo "ENV=$ENV" >> $GITHUB_ENV
-          if "${ENV}" == "arsenal";
+          if "${ENV}" == "arsenal"; then
             sleep 1m;
             echo "${ENV}"
           fi
