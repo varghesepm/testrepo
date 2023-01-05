@@ -1,5 +1,4 @@
 # This is a basic workflow to help you get started with Actions
-
 name: Test CI
 # Controls when the workflow will run
 on:
@@ -33,19 +32,19 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
   
-  # test-runer:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - name: Tester
-  #       strategy:
-  #         matrix:
-  #           tests_env: ["united", "city", "arsenal"]
-  #       steps:
-  #         - uses: actions/checkout@v2
-  #         - name: Print ENV
-  #           run: |
-  #             set -x
-  #             echo "ENV=$ENV" >> $GITHUB_ENV
-  #           env:
-  #             ENV: ${{ matrix.tests_env }}
+  test-runer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Tester
+        strategy:
+          matrix:
+            tests_env: ["united", "city", "arsenal"]
+        steps:
+          - uses: actions/checkout@v2
+          - name: Print ENV
+            run: |
+              set -x
+              echo "ENV=$ENV" >> $GITHUB_ENV
+            env:
+              ENV: ${{ matrix.tests_env }}
