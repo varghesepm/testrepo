@@ -5,6 +5,11 @@ name: Test CI
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+    inputs:
+      verboseEnabled:
+        description: 'run v'
+        required: false
+        default: "no"
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -28,19 +33,19 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
   
-  test-runer:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Tester
-        strategy:
-          matrix:
-            tests_env: ["united", "city", "arsenal"]
-        steps:
-          - uses: actions/checkout@v2
-          - name: Print ENV
-            run: |
-              set -x
-              echo "ENV=$ENV" >> $GITHUB_ENV
-            env:
-              ENV: ${{ matrix.tests_env }}
+  # test-runer:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - name: Tester
+  #       strategy:
+  #         matrix:
+  #           tests_env: ["united", "city", "arsenal"]
+  #       steps:
+  #         - uses: actions/checkout@v2
+  #         - name: Print ENV
+  #           run: |
+  #             set -x
+  #             echo "ENV=$ENV" >> $GITHUB_ENV
+  #           env:
+  #             ENV: ${{ matrix.tests_env }}
