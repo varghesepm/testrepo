@@ -42,6 +42,9 @@ jobs:
       - name: Print ENV
         run: |
           set -x
-          echo "ENV=$ENV" >> $GITHUB_ENV
+          # echo "ENV=$ENV" >> $GITHUB_ENV
+          if "${ENV}" == "arsenal":
+            sleep 1m;
+            echo "${ENV}"
         env:
           ENV: ${{ matrix.tests_env }}
