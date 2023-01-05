@@ -41,12 +41,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Print ENV
         run: |
-          #/bin/bash
-          set -x
-          # echo "ENV=$ENV" >> $GITHUB_ENV
-          if "${ENV}" == "arsenal"; then
-            sleep 1m;
-            echo "${ENV}"
-          fi
+          chmod +x scrip.sh 
+          ./scrip.sh         
         env:
           ENV: ${{ matrix.tests_env }}
