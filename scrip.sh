@@ -5,4 +5,6 @@ set -x
 if [ "${ENV}" == "arsenal" ]; then
     sleep 1m;
     echo "${ENV}"
+else
+    echo "${ENV}"
 fi
