@@ -67,4 +67,4 @@ jobs:
             </details>
             ${truncated_message}
 
-            *Pushed by: @${{ github.actor }}, Action: \`${{ github.event_name }}\`*`;
+            *Pushed by: @${{ github.actor }}, Action: \`${{ github.event_name }}\`*`
