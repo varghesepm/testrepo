@@ -57,18 +57,14 @@ jobs:
             const plan_file = fs.readFileSync('tfplan.txt', 'utf8')
             const plan = plan_file.length > 5000 ? plan_file.toString().substring(0, 5000) + " ..." : plan_file
             const truncated_message = plan_file.length > 5000 ? "Output is too long and was truncated."
-            const output = `#### Terraform Format and Style
+            const output = `#### Terraform Format and Style 🖌\`${{ steps.fmt.outcome }}\`            
             <details><summary>Show Plan</summary>
+            
             \`\`\`\n
-            plan
+            ${plan}
             \`\`\`
+            
             </details>
-            truncated_message
+            ${truncated_message}
+
             *Pushed by: @${{ github.actor }}, Action: \`${{ github.event_name }}\`*`;
-            console.log(`output`)
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: output
-            })
