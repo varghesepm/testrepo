@@ -53,16 +53,10 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const run_url = process.env.GITHUB_SERVER_URL + '/' + process.env.GITHUB_REPOSITORY + '/actions/runs/' + process.env.GITHUB_RUN_ID
-            const run_link = '<a href="' + run_url + '">Actions</a>.'
             const fs = require('fs')
             const plan_file = fs.readFileSync('tfplan.txt', 'utf8')
             const plan = plan_file.length > 5000 ? plan_file.toString().substring(0, 5000) + " ..." : plan_file
-            const truncated_message = plan_file.length > 5000 ? "Output is too long and was truncated. You can read full Plan in " + "link oflink" + "<br /><br />" : ""
-            const output = `#### Terraform Format and Style 🖌\`${{ steps.fmt.outcome }}\`
-            #### Terraform Initialization ⚙️\`${{ steps.init.outcome }}\`
-            #### Terraform Validation 🤖\`${{ steps.validate.outcome }}\`
-            #### Terraform Plan 📖\`${{ steps.plan.outcome }}\`
+            const truncated_message = plan_file.length > 5000 ? "Output is too long and was truncated."
             <details><summary>Show Plan</summary>
             console.log(plan)
             </details>
