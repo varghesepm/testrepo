@@ -57,6 +57,7 @@ jobs:
             const plan_file = fs.readFileSync('tfplan.txt', 'utf8')
             const plan = plan_file.length > 5000 ? plan_file.toString().substring(0, 5000) + " ..." : plan_file
             const truncated_message = plan_file.length > 5000 ? "Output is too long and was truncated."
+            const output = `#### Terraform Format and Style
             <details><summary>Show Plan</summary>
             \`\`\`\n
             plan
