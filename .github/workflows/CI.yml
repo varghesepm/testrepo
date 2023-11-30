@@ -45,3 +45,23 @@ jobs:
           ./scrip.sh         
         env:
           ENV: ${{ matrix.tests_env }}
+      - name: copy file
+        run: | 
+          cp tf.txt ${GITHUB_WORKSPACE}/tfplan.txt
+          echo "${GITHUB_WORKSPACE}"
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            const run_url = process.env.GITHUB_SERVER_URL + '/' + process.env.GITHUB_REPOSITORY + '/actions/runs/' + process.env.GITHUB_RUN_ID
+            const run_link = '<a href="' + run_url + '">Actions</a>.'
+            const fs = require('fs')
+            const plan_file = fs.readFileSync('tfplan.txt', 'utf8')
+            const plan = plan_file.length > 50000 ? plan_file.toString().substring(0, 50000) + " ..." : plan_file
+            const truncated_message = plan_file.length > 50000 ? "Output is too long and was truncated. You can read full Plan in " + run_link + "<br /><br />" : ""
+            <details><summary>Show Plan</summary>
+            \`\`\`\n
+            ${plan}
+            \`\`\`
+            </details>
+            ${truncated_message}
+            *Pushed by: @${{ github.actor }}, Action: \`${{ github.event_name }}\`*`;
