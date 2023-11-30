@@ -59,6 +59,10 @@ jobs:
             const plan_file = fs.readFileSync('tfplan.txt', 'utf8')
             const plan = plan_file.length > 65000 ? plan_file.toString().substring(0, 50000) + " ..." : plan_file
             const truncated_message = plan_file.length > 65000 ? "Output is too long and was truncated. You can read full Plan in " + "new_link" + "<br /><br />" : ""
+            ```
             console.log(`Hello ${plan}`)
+            ```
+            ```
             console.log(`${truncated_message}`)
+            ```
 
