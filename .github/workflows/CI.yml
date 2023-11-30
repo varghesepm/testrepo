@@ -64,9 +64,9 @@ jobs:
             #### Terraform Validation 🤖\`${{ steps.validate.outcome }}\`
             #### Terraform Plan 📖\`${{ steps.plan.outcome }}\`
             <details><summary>Show Plan</summary>
-            console.log(`${plan}`)
+            console.log(plan)
             </details>
-            console.log(`${truncated_message}`)
+            console.log(truncated_message)
             *Pushed by: @${{ github.actor }}, Action: \`${{ github.event_name }}\`*`;
             github.rest.issues.createComment({
               issue_number: context.issue.number,
