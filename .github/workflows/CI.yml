@@ -58,7 +58,9 @@ jobs:
             const plan = plan_file.length > 5000 ? plan_file.toString().substring(0, 5000) + " ..." : plan_file
             const truncated_message = plan_file.length > 5000 ? "Output is too long and was truncated."
             <details><summary>Show Plan</summary>
-            console.log(plan)
+            \`\`\`\n
+            plan
+            \`\`\`
             </details>
-            console.log(truncated_message)
+            truncated_message
             *Pushed by: @${{ github.actor }}, Action: \`${{ github.event_name }}\`*`;
