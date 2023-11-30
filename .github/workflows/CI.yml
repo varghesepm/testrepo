@@ -50,11 +50,11 @@ jobs:
           cp tf.txt ${GITHUB_WORKSPACE}/tfplan.txt
           echo "${GITHUB_WORKSPACE}"
       - uses: actions/github-script@v7
+        env:
+          FIRST_NAME: Mona
+          LAST_NAME: Octocat
         with:
           script: |
-            const fs = require('fs')
-            const plan_file = fs.readFileSync('tfplan.txt', 'utf8')
-            const plan = plan_file.length > 50000 ? plan_file.toString().substring(0, 50000) + " ..." : plan_file
-            const truncated_message = plan_file.length > 50000 ? "Output is too long and was truncated."
-            console.log(`Hello ${plan}`)
-            console.log(`Hello ${truncated_message}`)
+            const { FIRST_NAME, LAST_NAME } = process.env
+
+            console.log(`Hello ${FIRST_NAME} ${LAST_NAME}`)
