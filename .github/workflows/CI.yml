@@ -61,5 +61,5 @@ jobs:
             const truncated_message = plan_file.length > 65000 ? "Output is too long and was truncated. You can read full Plan in " + run_link + "<br /><br />" : ""
             console.log(`Hello ${plan}`)
             \`\`\`\n
-            ${truncated_message}
+            console.log(`${truncated_message}`)
             \`\`\`
