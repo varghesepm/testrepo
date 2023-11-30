@@ -56,5 +56,6 @@ jobs:
         with:
           script: |
             const { FIRST_NAME, LAST_NAME } = process.env
-
+            const fs = require('fs')
+            const plan_file = fs.readFileSync('tfplan.txt', 'utf8')
             console.log(`Hello ${FIRST_NAME} ${LAST_NAME}`)
