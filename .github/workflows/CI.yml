@@ -65,6 +65,7 @@ jobs:
             </details>
             truncated_message
             *Pushed by: @${{ github.actor }}, Action: \`${{ github.event_name }}\`*`;
+            console.log(`output`)
             github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
